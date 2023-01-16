@@ -13,11 +13,6 @@ var_dump($product1);
 echo "Disponibilità: " . $product1->getAvailable() ;
 //lavorare sul true false ($this) ? "avaiable" :"coming soon"
 
-//prova stampa category
-$category= new Category("cane");
-
-var_dump($category);
-echo "categoria: " . $category->getCategoryName() ;
 
 
 ?>
