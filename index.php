@@ -2,6 +2,7 @@
 
 require_once "./classes/Product.php";
 require_once "./classes/Category.php";
+require_once "./classes/Color.php";
 include "./db.php";
 
  $product1 = new Product("url.img", "name", 50, false, new Category("nomeCategoria", "icona"));
@@ -18,7 +19,7 @@ include "./db.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-
+    <link rel="stylesheet" href="style.css">
     <title>Pet Shop</title>
 
 
@@ -43,7 +44,7 @@ include "./db.php";
 
                                 <?php echo  "Category: ". $product['categoryName']?>                              
                                 
-                                <span class="ps-3"><i class="fa-solid <?php echo $product['categoryIcon']?> "></i>
+                                <span class="ps-3 <?php echo $product['categoryName'] === 'Cat'? 'text-info' :'text-warning'?>"><i class="fa-solid <?php echo $product['categoryIcon']?> "></i>
                             </p>
                         </div>   
                     </div>
