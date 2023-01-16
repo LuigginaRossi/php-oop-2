@@ -1,17 +1,19 @@
 <?php
-// I prodotti saranno oltre al cibo, anche giochi, cucce, etc.
+include_once __DIR__ ."/Category.php";
 class Product {
     protected string $img;
     protected string $productName;
     protected float $price;
     protected bool $available;
+    private $category;
 
-    function __construct($_img, $_productName, $_price, $available = null)
+    function __construct($_img, $_productName, $_price, $available = null, Category $category)
     {
         $this->setImg($_img);
         $this->setProductName($_productName);
         $this->setPrice($_price);
         $this->setAvailable($available);
+        $this->setCategory($category);
     }
 
     // -----
@@ -88,7 +90,11 @@ class Product {
      */ 
     public function getAvailable()
     {
-        return $this->available;
+        if($this->available === true){
+            return "available ";
+        }else{
+            return "coming soon";
+        }
     }
 
     /**
@@ -99,6 +105,28 @@ class Product {
     public function setAvailable($available)
     {
         $this->available = $available;
+
+        return $this;
+    }
+
+    // -----
+
+    /**
+     * Get the value of category
+     */ 
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set the value of category
+     *
+     * @return  self
+     */ 
+    public function setCategory($category)
+    {
+        $this->category = $category;
 
         return $this;
     }

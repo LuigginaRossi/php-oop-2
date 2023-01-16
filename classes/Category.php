@@ -1,16 +1,11 @@
 <?php
 
-// I prodotti sono categorizzati, le categorie sono Cani o Gatti.
-require_once __DIR__ . "/Product.php";
-
-class Category extends Product{
+class Category {
     protected string $categoryName;
     protected $categoryIcon;
 
-    function __construct($_categoryName, $_categoryIcon)
+    function __construct ($_categoryName, $_categoryIcon)
     {
-        //invoco parametri della classe prodotto
-        parent::__construct($this->productName, $this->price, $_categoryName);
         $this->setCategoryName($_categoryName);
         $this->setCategoryIcon($_categoryIcon);
     }

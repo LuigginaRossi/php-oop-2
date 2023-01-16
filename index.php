@@ -1,20 +1,12 @@
-<!-- Stampiamo delle card contenenti i dettagli dei prodotti, 
-come immagine, titolo, prezzo, icona della categoria ed 
-il tipo di articolo che si sta visualizzando (prodotto, cibo, gioco, cuccia) -->
 <?php
+
 require_once "./classes/Product.php";
 require_once "./classes/Category.php";
 
-// //prova stampa category
-// $category = new Category("cat", "icon_cat");
+$product= new Product("url.img", "name", 50, true, new Category("nomeCategoria", "icona"));
+var_dump($product);
 
-// var_dump($category);
-
-// echo ;
-//lavorare sul true false ($this) ? "avaiable" :"coming soon"
-
-
-
+echo "disponibile: " . $product->getAvailable();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +23,7 @@ require_once "./classes/Category.php";
 </head>
 <body>
     <h1 class="text-center py-5">Pet Shop</h1>
-    <span><i class="fa-solid fa-cat"></i><i class="fa-solid fa-dog"></i></span>
+    <!-- <span><i class="fa-solid fa-cat"></i><i class="fa-solid fa-dog"></i></span> -->
 
 
 </body>
