@@ -7,11 +7,12 @@ class Category extends Product{
     protected string $categoryName;
     protected $categoryIcon;
 
-    function __construct($_categoryName)
+    function __construct($_categoryName, $_categoryIcon)
     {
         //invoco parametri della classe prodotto
         parent::__construct($this->productName, $this->price, $_categoryName);
         $this->setCategoryName($_categoryName);
+        $this->setCategoryIcon($_categoryIcon);
     }
 
     /**
