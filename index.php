@@ -14,7 +14,7 @@ $catCategory= new Category("Cat", "fa-cat");
 $dogCategory= new Category("Dog", "fa-dog");
 
 $dogFood= new Food("cibo_cane.jpg", "Royal Canin", 50, true, $dogCategory, "dog treats", ["rise", "chicken"]);
-$catFood= new Food("cibo_gatto.jpg", "Royal Canin", 30,579 ,$catCategory,"cat treats", ["salmon"] );
+$catFood= new Food("cibo_gatto.jpg", "Royal Canin", 30.989 , false, $catCategory,"cat treats", ["salmon"] );
 $tiragraffi= new Game("tiragraffi.jpg","Tiragraffi", 20, false, $catCategory, ["wood", "string"]);
 $peluche= new Game("gioco_cane.jpg", "Peluche", 19.45, true, $dogCategory, ["coton"]);
 $kennel= new Product("cuccia.jpg", "Cuccia", 50.894, false, $dogCategory, ["coton", "plastic"]);
@@ -61,9 +61,24 @@ $productList= [
                             <div class="card-text">
                                 <?php echo 
                                 "Available: " . $product->getAvailable() . "<br>".
-                                "Price: " . $product->getPrice() . "<br>"
+                                "Price: " . $product->getPrice() ."&#8364;". "<br>"
                                 ?>
                             </div>
+                            <?php if(method_exists($product, "getTypology")) : ?>
+                                <div>
+                                    <!-- food typology -->
+                                    <?php echo "Typology: " . $product->getTypology() . "<br>" .
+                                      "Ingredients: " .   implode(" , " ,$product->getIngredients()) ?>
+                                </div>
+                            <?php endif ?>
+
+                            <?php if(method_exists($product, "getMaterials")) : ?>
+                                <div>
+                                    <!-- game -->
+                                    <?php echo "Materials: " . implode(" , ", $product->getMaterials()) . "<br>" ?>
+                                </div>
+                            <?php endif ?>
+                          
                         </div>   
                     </div>
                 </div>
