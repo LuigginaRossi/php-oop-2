@@ -2,12 +2,19 @@
 
 require_once "./classes/Product.php";
 require_once "./classes/Category.php";
-require_once "./classes/Color.php";
-include "./db.php";
+require_once "./classes/Food.php";
+require_once "./classes/Game.php";
 
- $product1 = new Product("url.img", "name", 50, false, new Category("nomeCategoria", "icona"));
- var_dump($product1);
- echo "disponibile: " . $product1->getAvailable();
+
+$product1 = new Product("url.img", "name", 50, false, new Category("nomeCategoria", "icona"));
+var_dump($product1);
+echo "disponibile: " . $product1->getAvailable();
+
+$catCategory= new Category("Cat", "fa-cat");
+$dogCategory= new Category("Dog", "fa-dog");
+
+$cuccia= new Food("cibo_cane.jpg", "Royal Canin", 50, true, $dogCategory, "dog treats", ["rise", "chicken"]);
+var_dump($cuccia);
 
 ?>
 <!DOCTYPE html>
@@ -31,25 +38,19 @@ include "./db.php";
 
     <div class="container py-4">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <?php foreach($productsList as $product){ ?>
+            <?php ?>
                 <div class="col">
                     <div class="card">
-                        <img src="imgs/<?php echo $product['img'] ?>" class="card-img-top" alt="...">
+                        <img src="imgs/" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-dark"><?php echo "Product Name: ". $product['productName'] ?></h5>
+                            <h5 class="card-title"></h5>
                             <p class="card-text">
-                                <?php echo  "Price: ". $product['price'] . "&euro;" ?><br>  
-                                <!-- echo  "Available: ".  $product->getAvailable() -->
-                                <?php echo  "Available: ". $product['available'] ?><br>    
-
-                                <?php echo  "Category: ". $product['categoryName']?>                              
                                 
-                                <span class="ps-3 <?php echo $product['categoryName'] === 'Cat'? 'text-info' :'text-warning'?>"><i class="fa-solid <?php echo $product['categoryIcon']?> "></i>
                             </p>
                         </div>   
                     </div>
                 </div>
-            <?php } ?>
+            <?php ?>
         </div>
 </body>
 

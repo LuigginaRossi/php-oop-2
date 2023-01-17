@@ -5,7 +5,7 @@ class Product {
     protected string $productName;
     protected float $price;
     protected bool $available;
-    private $category;
+    protected $category;
 
     function __construct($_img, $_productName, $_price, $available = null, Category $category)
     {
