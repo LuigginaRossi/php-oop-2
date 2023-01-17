@@ -116,7 +116,11 @@ class Product {
      */ 
     public function getCategory()
     {
-        return $this->category;
+        $category= [
+            "name"=>$this->category->getCategoryName(),
+            "icon"=>'<i class="fa-solid '. $this->category->getCategoryIcon().'"></i>',
+        ];
+        return $category;
     }
 
     /**

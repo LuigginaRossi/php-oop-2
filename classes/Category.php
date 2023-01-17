@@ -47,6 +47,6 @@ class Category {
     {
         $this->categoryIcon = $categoryIcon;
 
-        return $this;
+        return "<i class='fa-solid $categoryIcon'></i>";
     }
 }
