@@ -13,9 +13,22 @@ echo "disponibile: " . $product1->getAvailable();
 $catCategory= new Category("Cat", "fa-cat");
 $dogCategory= new Category("Dog", "fa-dog");
 
-$cuccia= new Food("cibo_cane.jpg", "Royal Canin", 50, true, $dogCategory, "dog treats", ["rise", "chicken"]);
-var_dump($cuccia);
+$dogFood= new Food("cibo_cane.jpg", "Royal Canin", 50, true, $dogCategory, "dog treats", ["rise", "chicken"]);
+$catFood= new Food("cibo_gatto.jpg", "Royal Canin", 30,579 ,$catCategory,"cat treats", ["salmon"] );
+$tiragraffi= new Game("tiragraffi.jpg","Tiragraffi", 20, false, $catCategory, ["wood", "string"]);
+$peluche= new Game("gioco_cane.jpg", "Peluche", 19.45, true, $dogCategory, ["coton"]);
+$kennel= new Product("cuccia.jpg", "Cuccia", 50.894, false, $dogCategory, ["coton", "plastic"]);
+$featherRod= new Game("gioco_gatto.jpg", "Asta con piume", 20.355, true, $catCategory, ["wood", "plastic"]);
+var_dump($dogFood, $catFood, $tiragraffi, $peluche);
 
+$productList= [
+    $dogFood,
+    $catFood,
+    $tiragraffi,
+    $peluche,
+    $kennel,
+    $featherRod,
+];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,23 +47,27 @@ var_dump($cuccia);
 
 <body>
     <h1 class="text-center pt-5">Pet Shop</h1>
-    <!-- <span><i class="fa-solid fa-cat"></i><i class="fa-solid fa-dog"></i></span> -->
+    <!-- <i class="fa-solid fa-cat"></i>
+    <i class="fa-solid fa-dog"></i> -->
 
     <div class="container py-4">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <?php ?>
+            <?php foreach($productList as $product) :?>
                 <div class="col">
                     <div class="card">
-                        <img src="imgs/" class="card-img-top" alt="...">
+                        <img src="imgs/<?php echo $product->getImg() ?>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <p class="card-text">
-                                
-                            </p>
+                            <h5 class="card-title"><?php echo $product->getProductName() ?></h5>
+                            <div class="card-text">
+                                <?php echo 
+                                "Available: " . $product->getAvailable() . "<br>".
+                                "Price: " . $product->getPrice() . "<br>"
+                                ?>
+                            </div>
                         </div>   
                     </div>
                 </div>
-            <?php ?>
+            <?php endforeach ?>
         </div>
 </body>
 

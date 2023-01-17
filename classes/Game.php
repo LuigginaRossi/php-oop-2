@@ -7,7 +7,7 @@ class Game extends Product{
     
     function __construct($_img, $_productName, $_price, $available = null, Category $_category, $_materials)
     {
-        parent::__construct($_img, $_productName, $_price, $available = null, $_category);
+        parent::__construct($_img, $_productName, $_price, $available, $_category);
         $this->setMaterials($_materials);
     }
 
